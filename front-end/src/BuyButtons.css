@@ -1,0 +1,79 @@
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.buttons {
+    height: 54rem;
+    mix-blend-mode: screen;
+    width: 51rem;
+    margin-top: -100px;
+    z-index: 0;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#depositeBtn {
+    margin-left: -6rem;
+
+}
+
+
+@media only screen and (max-width: 830px) {
+    html {
+        font-size: 55%;
+    }
+
+    .buttonContainer {
+        display: flex;
+        align-items: center;
+        width: 100vw;
+    }
+
+    .buttons {
+        height: 53rem;
+        width: 50vw;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        object-fit: cover;
+    }
+
+    #depositeBtn {
+        margin-left: 0rem;
+    }
+}
+
+@media only screen and (max-width: 475px) {
+    html {
+        font-size: 55%;
+    }
+
+    .buttonContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100vw;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .buttons {
+        height: 22vw;
+        width: 43vw;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        object-fit: cover;
+        margin-top: 0px;
+    }
+
+    #depositeBtn {
+        margin-left: 0rem;
+    }
+}

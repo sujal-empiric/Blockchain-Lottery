@@ -1,0 +1,147 @@
+#headerLogo{
+    padding: 0.6rem;
+}
+.navbarContainer{
+    margin: 0rem;
+    padding: 0rem;
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+@font-face {
+    font-family: "jura";
+    src: local("jura"),url("./static/fonts/JuraMedium.ttf") format("truetype");
+    font-weight: bold;
+}
+.navAccountNumber{
+    color: #FFAAB6;
+    font-family: 'Jura';
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0px 0px 12px #CE1532, 0px 0px 38px #F51919;
+}
+.usdtBalance{
+    color: #FFAAB6;
+    font-family: 'Jura';
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0px 0px 0.72rem #CE1532, 0px 0px 2.28rem #F51919;
+}
+.buttonContainers{
+    display: flex;
+    gap: 0.3rem;
+}
+
+.hamburger{
+    width: 6rem;
+    display: none;
+    position: absolute;
+    top: 3rem;
+    left: 0.6rem;
+}
+
+.connectButtons{
+    height: 7.5rem;
+    width: 19.02rem;
+}
+.navLogo{
+    height: 7.32rem;
+    width: 19.74rem;
+}
+
+
+@media only screen and (max-width: 830px) {
+    html{
+        font-size: 55%;
+    }
+    .navbar{
+        flex-direction: row;
+    }
+    .buttonsContainer{
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
+    #tronButton{
+        display: none;
+    }
+    .connectButtons{
+        height: 15rem;
+        width: 37rem;
+    }
+    .connectButtons:first-child{
+        margin-bottom: -6rem;
+    }
+    .navLogo{
+        height: 10rem;
+        width: 30rem;
+    }
+    .datacontainer{
+        flex-direction: column;
+    }
+    .navAccountNumber{
+        color: #FFAAB6;
+        font-family: 'Jura';
+        font-size: 5rem;
+        font-weight: 700;
+        text-shadow: 0px 0px 12px #CE1532, 0px 0px 38px #F51919;
+    }
+    .usdtBalance{
+        color: #FFAAB6;
+        font-family: 'Jura';
+        font-size: 5rem;
+        font-weight: 700;
+        text-shadow: 0px 0px 0.72rem #CE1532, 0px 0px 2.28rem #F51919;
+    }
+}
+
+
+@media only screen and (max-width: 475px) {
+    html{
+        font-size: 55%;
+    }
+    .navbar{
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 1rem;
+        width: 100vw;
+    }
+    .buttonsContainer{
+        display: flex;
+        flex-direction: row;
+        gap: 0px;
+    }
+    #tronButton{
+        display: none;
+    }
+    .connectButtons{
+        height: 6rem;
+        width: 14rem;
+    }
+    .connectButtons:first-child{
+        margin-right: -2rem;
+    }
+    .navLogo{
+        height: 4rem;
+        width: 12rem;
+    }
+    .datacontainer{
+        display: flex;
+    }
+    .navAccountNumber{
+        color: #FFAAB6;
+        font-family: 'Jura';
+        font-size: 3rem;
+        font-weight: 700;
+        text-shadow: 0px 0px 12px #CE1532, 0px 0px 38px #F51919;
+    }
+    .usdtBalance{
+        color: #FFAAB6;
+        font-family: 'Jura';
+        font-size: 3rem;
+        font-weight: 700;
+        text-shadow: 0px 0px 0.72rem #CE1532, 0px 0px 2.28rem #F51919;
+    }
+}
