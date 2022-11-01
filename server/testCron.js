@@ -6,10 +6,10 @@ const Provider = new ethers.providers.JsonRpcProvider("https://data-seed-prebsc-
 // const Provider = new ethers.providers.AlchemyProvider('maticmum', 'bjMe0YCNyiyfqspS91W1JtoPNzoLh19a')
 console.log(Provider.connection)
 
-const Wallet = new ethers.Wallet("7a73db6ddc5a99a7eba76cafeac2a5c591aba00287e01671629fe1dcbb8b1d05",Provider)
+const Wallet = new ethers.Wallet("85a40fe49f7371fbd89f63602d25db6aef6600cc46602eea96da35a82a607bf8",Provider)
 console.log(Wallet.address)
 
-const blockchainLotteryAddress = "0x8bC8549a0449a222E0E29785dd6CBA2eA840248e";
+const blockchainLotteryAddress = "0xE5D87De908a2Bb64786A38ed162CaCbCB1078344";
 const blockchainLotteryAbi = require('./Abi/LotteryV2.json')
 const blockchainLotteryContract = new ethers.Contract(blockchainLotteryAddress, blockchainLotteryAbi, Wallet)
 console.log(process.env.REACT_APP_BLOCKCHAIN_LOTTERY_ADDRESS)

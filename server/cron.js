@@ -1,420 +1,45 @@
 const cron = require("node-cron");
 const ethers = require("ethers");
-const TronWeb = require("tronweb");
 
-const PRIVATEKEY =
-  "PRIVATEKEY";
-// const Provider = new ethers.providers.JsonRpcProvider("https://cold-patient-moon.matic-testnet.discover.quiknode.pro/202df11be14be8f724d2fae3995aa0ed8f93448c/")
-const PolygonProvider = new ethers.providers.AlchemyProvider(
-  "matic",
-  "Yh3I9yoFwdI62pQjCJ-pTnlCnZ08Bv2i"
+const Provider = new ethers.providers.JsonRpcProvider(
+  "https://data-seed-prebsc-1-s1.binance.org:8545/"
 );
-console.log(PolygonProvider.connection);
-const BNBProvider = new ethers.providers.JsonRpcProvider(
-  "https://bsc-dataseed.binance.org/"
-);
-console.log(BNBProvider.connection);
+// const Provider = new ethers.providers.AlchemyProvider('maticmum', 'bjMe0YCNyiyfqspS91W1JtoPNzoLh19a')
+console.log(Provider.connection);
 
-const PolygonWallet = new ethers.Wallet(PRIVATEKEY, PolygonProvider);
-console.log(PolygonWallet.address);
-const BNBWallet = new ethers.Wallet(PRIVATEKEY, BNBProvider);
-console.log(BNBWallet.address);
+const Wallet = new ethers.Wallet("PRIVATE KEY", Provider);
+console.log(Wallet.address);
 
-const blockchainLotteryAddress = "0x903F507A8b2887492aBA0fcEcc654b9981e4Cb58";
-const blockchainLotteryAbi = [
-  {
-    inputs: [],
-    stateMutability: "nonpayable",
-    type: "constructor",
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: false,
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    name: "DepositeAmountEvent",
-    type: "event",
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: false,
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    name: "Winner",
-    type: "event",
-  },
-  {
-    inputs: [],
-    name: "USDTAddress",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-    constant: true,
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    name: "addressAndTickets",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-    constant: true,
-  },
-  {
-    inputs: [],
-    name: "amount",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-    constant: true,
-  },
-  {
-    inputs: [],
-    name: "fee",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-    constant: true,
-  },
-  {
-    inputs: [],
-    name: "isOn",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-    constant: true,
-  },
-  {
-    inputs: [],
-    name: "lastWinner",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-    constant: true,
-  },
-  {
-    inputs: [],
-    name: "owner",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-    constant: true,
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    name: "tickets",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-    constant: true,
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    name: "ticketsAndAddress",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-    constant: true,
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
-    ],
-    name: "updateOwner",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_account",
-        type: "address",
-      },
-    ],
-    name: "setFeeAccount",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_fee",
-        type: "uint256",
-      },
-    ],
-    name: "updateFee",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_newAddress",
-        type: "address",
-      },
-    ],
-    name: "updateUSDTAddress",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_id",
-        type: "uint256",
-      },
-    ],
-    name: "getParticipants",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-    constant: true,
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_amount",
-        type: "uint256",
-      },
-    ],
-    name: "setDepositeAmount",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_num",
-        type: "uint256",
-      },
-    ],
-    name: "setRandNounce",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "getAllParticipants",
-    outputs: [
-      {
-        internalType: "address[]",
-        name: "",
-        type: "address[]",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-    constant: true,
-  },
-  {
-    inputs: [],
-    name: "getAllTickets",
-    outputs: [
-      {
-        internalType: "uint256[]",
-        name: "",
-        type: "uint256[]",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-    constant: true,
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
-    ],
-    name: "getTicket",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-    constant: true,
-  },
-  {
-    inputs: [
-      {
-        internalType: "bool",
-        name: "_isOn",
-        type: "bool",
-      },
-    ],
-    name: "setIsOn",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_amount",
-        type: "uint256",
-      },
-    ],
-    name: "depositeUSDT",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "assignTicket",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "getLottery",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-];
-const blockchainLotteryContractPolygon = new ethers.Contract(
+const blockchainLotteryAddress = "0xf6F22562BFe7355006905C9004484a621d5C923D";
+const blockchainLotteryAbi = require("./Abi/LotteryV2.json");
+const blockchainLotteryContract = new ethers.Contract(
   blockchainLotteryAddress,
   blockchainLotteryAbi,
-  PolygonWallet
+  Wallet
 );
-const blockchainLotteryContractBNB = new ethers.Contract(
-  blockchainLotteryAddress,
-  blockchainLotteryAbi,
-  BNBWallet
-);
+console.log(process.env.REACT_APP_BLOCKCHAIN_LOTTERY_ADDRESS);
 
 const sleep = (milliseconds) => {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 };
 
+const news = async () => {
+  let i = await blockchainLotteryContract.isOn();
+  console.log(i);
+};
+
+// news()
+
 // 0 55 23 * * *
 // 0 0,15,35,50 * * * *
-let polygon = cron.schedule("0 55 23 * * *", async function () {
-  let isOn = await blockchainLotteryContractPolygon.isOn();
-  console.log(isOn);
+let assigner = cron.schedule("0 55 23 * * *", async function () {
+  let isOn = await blockchainLotteryContract.isOn();
   if (isOn) {
-    let gasprice = await PolygonProvider.getGasPrice();
+    let gasprice = await Provider.getGasPrice();
     console.log("Gas Price: " + gasprice.toNumber());
     console.log(new Date().toLocaleTimeString());
-    let tx = await blockchainLotteryContractPolygon.assignTicket({
+    let tx = await blockchainLotteryContract.assignTicket({
+      gasLimit: 7417800,
       gasPrice: gasprice.toNumber(),
     });
     console.log(tx);
@@ -423,13 +48,13 @@ let polygon = cron.schedule("0 55 23 * * *", async function () {
 
     await sleep(300000);
     console.log("After wait " + new Date().toLocaleTimeString());
-    isOn = await blockchainLotteryContractPolygon.isOn();
+    isOn = await blockchainLotteryContract.isOn();
     if (isOn === false) {
       console.log(new Date().toLocaleTimeString());
-      let gasprice = await PolygonProvider.getGasPrice();
+      let gasprice = await Provider.getGasPrice();
       console.log("Gas Price: " + gasprice.toNumber());
       console.log(new Date().toLocaleTimeString());
-      let tx = await blockchainLotteryContractPolygon.getLottery({
+      let tx = await blockchainLotteryContract.getLottery({
         gasPrice: gasprice.toNumber(),
       });
       console.log(tx);
@@ -437,72 +62,7 @@ let polygon = cron.schedule("0 55 23 * * *", async function () {
   }
 });
 
-// 0 55 23 * * *
-// 0 0,15,35,50 * * * *
-let bnb = cron.schedule("0 55 23 * * *", async function () {
-  let isOn = await blockchainLotteryContractBNB.isOn();
-  if (isOn) {
-    let gasprice = await BNBProvider.getGasPrice();
-    console.log("Gas Price: " + gasprice.toNumber());
-    console.log(new Date().toLocaleTimeString());
-    let tx = await blockchainLotteryContractBNB.assignTicket({
-      gasPrice: gasprice.toNumber(),
-    });
-    console.log(tx);
-    let reciept = await tx.wait();
-    console.log("Before Wait " + new Date().toLocaleTimeString());
+// 0 0 0 * * *
+// 0 10,25,40,55 * * * *
 
-    await sleep(300000);
-    console.log("After wait " + new Date().toLocaleTimeString());
-    isOn = await blockchainLotteryContractBNB.isOn();
-    if (isOn === false) {
-      console.log(new Date().toLocaleTimeString());
-      let gasprice = await BNBProvider.getGasPrice();
-      console.log("Gas Price: " + gasprice.toNumber());
-      console.log(new Date().toLocaleTimeString());
-      let tx = await blockchainLotteryContractBNB.getLottery({
-        gasPrice: gasprice.toNumber(),
-      });
-      console.log(tx);
-    }
-  }
-});
-
-const HttpProvider = TronWeb.providers.HttpProvider;
-const fullNode = new HttpProvider("https://api.trongrid.io");
-const solidityNode = new HttpProvider("https://api.trongrid.io");
-const eventServer = new HttpProvider("https://api.trongrid.io");
-const privateKey =
-  "PRIVATEKEY";
-const tronWeb = new TronWeb(fullNode, solidityNode, eventServer, privateKey);
-tronWeb.setHeader({
-  "TRON-PRO-API-KEY": "bf0bb2f6-c82f-43e6-a814-f31153b247fd",
-});
-const blockchainLotteryAddressTron = "TUWmgMu4PWCCiLDFQ6gmAFVRBjZQywKfrD";
-
-let tron = cron.schedule("0 55 23 * * *", async function () {
-  const blockchainLotteryContractTron = await tronWeb.contract(
-    blockchainLotteryAbi,
-    blockchainLotteryAddressTron
-  );
-  let isOn = await blockchainLotteryContractTron.isOn().call();
-  console.log(isOn);
-  if (isOn) {
-    console.log(new Date().toLocaleTimeString());
-    let tx = await blockchainLotteryContractTron.assignTicket().send();
-    console.log(tx);
-
-    await sleep(300000);
-    console.log("After wait " + new Date().toLocaleTimeString());
-    isOn = await blockchainLotteryContractTron.isOn().call();
-    if (isOn === false) {
-      console.log(new Date().toLocaleTimeString());
-      let tx = await blockchainLotteryContractTron.getLottery().send();
-      console.log(tx);
-    }
-  }
-});
-
-polygon.start();
-bnb.start();
-tron.start();
+assigner.start();

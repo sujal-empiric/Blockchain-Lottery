@@ -1,11 +1,10 @@
 {
   "files": {
     "main.css": "./static/css/main.33e4eeb5.css",
-    "main.js": "./static/js/main.23037911.js",
+    "main.js": "./static/js/main.eeaf6dc3.js",
     "static/media/Flames.png": "./static/media/Flames.348f2254244835cb94d6.png",
     "static/media/Buy Ticket Button GIF.gif": "./static/media/Buy Ticket Button GIF.352521ef3dc258bf1a8a.gif",
     "static/media/Approve Token Button GIF.gif": "./static/media/Approve Token Button GIF.b0752fa84f848f83e98f.gif",
-    "static/media/Tron Link btn.png": "./static/media/Tron Link btn.9596f8b4228eb85fe735.png",
     "static/media/Wallet Connect btn.png": "./static/media/Wallet Connect btn.9549dc876444a85557b3.png",
     "static/media/Diablo.gif": "./static/media/Diablo.ae1ed41e9b2a59e9e3f7.gif",
     "static/media/Blue Neon.png": "./static/media/Blue Neon.555e7cc8f743645f884d.png",
@@ -26,10 +25,10 @@
     "static/media/Mini Logo.png": "./static/media/Mini Logo.92bee954ffd37abc60d9.png",
     "index.html": "./index.html",
     "main.33e4eeb5.css.map": "./static/css/main.33e4eeb5.css.map",
-    "main.23037911.js.map": "./static/js/main.23037911.js.map"
+    "main.eeaf6dc3.js.map": "./static/js/main.eeaf6dc3.js.map"
   },
   "entrypoints": [
     "static/css/main.33e4eeb5.css",
-    "static/js/main.23037911.js"
+    "static/js/main.eeaf6dc3.js"
   ]
 }

@@ -2,7 +2,6 @@ import React from 'react'
 import logo from './static/Header Logo.png'
 import MetamaskButton from './static/Metamask btn.png'
 import WalletConnectButton from './static/Wallet Connect btn.png'
-import TronLinkButton from './static/Tron Link btn.png'
 import './static/fonts/JuraMedium.ttf';
 
 import './Navbar.css'
@@ -23,7 +22,6 @@ function Navbar(props) {
           <div className='buttonsContainer'>
             <img className='connectButtons' onClick={props.connectWallet} src={MetamaskButton} alt="NO IMG FOUND"></img>
             <img className='connectButtons' onClick={props.walletConnect} src={WalletConnectButton} alt="NO IMG FOUND"></img>
-            <img id='tronButton' className='connectButtons' onClick={props.tronWebConnect} src={TronLinkButton} alt="NO IMG FOUND"></img>
           </div>}
       </nav>
     </div>
