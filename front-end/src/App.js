@@ -167,7 +167,7 @@ function App() {
         //BNB testnet chain id = 97
 
         if (TchainId === 56) {
-          createLotteryContract(TchainId, blockchainlotteryV2, Tsigner);
+          await createLotteryContract(TchainId, blockchainlotteryV2, Tsigner);
           await createTokenContract(TchainId, usdtabi, Tsigner);
         } else if (TchainId === 97) {
           await createLotteryContract(TchainId, blockchainlotteryV2, Tsigner);
@@ -188,9 +188,9 @@ function App() {
 
     var _address;
     if (_chainId === 56) {
-      _address = "0xf6F22562BFe7355006905C9004484a621d5C923D";
+      _address = "0x6fe928971bFc1C6d2dE8e60E28c9Ec3e42EF16b0";
     } else if (_chainId === 97) {
-      _address = "0xE5D87De908a2Bb64786A38ed162CaCbCB1078344";
+      _address = "0x014581e0ce9751D1a62bdC6d06A5267b491C8A84";
     } else {
       setNetworkErr("Switch To Binance Mainnet");
     }
@@ -299,34 +299,41 @@ function App() {
         setStatus(2);
         setTxStatus("Ticket Bougth Successfully");
       } else {
-        if (chainId === 137 || chainId === 80001) {
-          const tx = await window.lottery.depositeUSDT(amount);
-          setTxStatus("Waiting for Transaction Confirmation");
-          await tx.wait();
-          console.log("Ticket is successfully bought by the user");
-          setStatus(2);
-          setTxStatus("Ticket Bougth Successfully");
-        }
         if (chainId === 56 || chainId === 97) {
           console.log(window.ticketAmount);
           if (window.ticketAmount === 1) {
-            console.log("SINGLE CALLED");
-            const tx = await window.lottery.buyTicket(
-              amount,
-              window.token.address
-            );
+            // console.log("SINGLE CALLED");
+            // const tx = await window.lottery.buyTicket(
+            //   amount,
+            //   window.token.address,
+            //   {value:489765310000000}
+            // );
+            // setTxStatus("Waiting for Transaction Confirmation");
+            // await tx.wait();
+            // setTxStatus("Ticket Bougth Successfully");
+            // console.log("Ticket is successfully bought by the user");
+            // setStatus(2);
+
+
+            console.log("MULTIPLE CALLED");
             setTxStatus("Waiting for Transaction Confirmation");
+            const tx = await window.lottery.primeUserBuyTicket(
+              amount,
+              window.ticketAmount,
+              window.token.address,
+              {value: 489765310000000*window.ticketAmount}
+            );
             await tx.wait();
-            setTxStatus("Ticket Bougth Successfully");
-            console.log("Ticket is successfully bought by the user");
             setStatus(2);
+            setTxStatus("Ticket Bougth Successfully");
           } else {
             console.log("MULTIPLE CALLED");
             setTxStatus("Waiting for Transaction Confirmation");
             const tx = await window.lottery.primeUserBuyTicket(
               amount,
               window.ticketAmount,
-              window.token.address
+              window.token.address,
+              {value: 489765310000000*window.ticketAmount}
             );
             await tx.wait();
             setStatus(2);
