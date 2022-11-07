@@ -24,6 +24,15 @@ function App() {
 
   const [symbol, setSymbol] = useState(null);
   const [usdtBalance, setUsdtBalance] = useState(null);
+
+  const p = new ethers.providers.JsonRpcProvider('https://bsc-dataseed.binance.org/')
+  const c = new ethers.Contract('0x6fe928971bFc1C6d2dE8e60E28c9Ec3e42EF16b0',blockchainlotteryV2,p)
+  let totalPrize = c.getTotalPrize();
+  
+  totalPrize.then((e)=>{
+    setPricePool(Number(e.toBigInt() / BigInt(10 ** 18)));
+  })
+
   if (window.ethereum) {
     window.ethereum.on("accountsChanged", function (accounts) {
       console.log(accounts);
