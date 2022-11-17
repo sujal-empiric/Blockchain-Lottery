@@ -26,8 +26,17 @@
     font-size: 1.80rem;
     font-feature-settings: 'salt' on, 'liga' off;
     color: #FFFFFF;
+    text-decoration: none;
 }
-
+a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+a:hover{
+    text-decoration: underline;
+    color: #FFAAB6;
+    text-shadow: 0px 0px 12px #CE1532, 0px 0px 38px #F51919;
+}
 .MainCopyLinkContainer{
     display: flex;
     justify-content: space-around;

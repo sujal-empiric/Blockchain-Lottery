@@ -16,10 +16,10 @@
     font-weight: bold;
 }
 .navAccountNumber{
-    color: #FFAAB6;
     font-family: 'Jura';
     font-size: 3rem;
     font-weight: 700;
+    color: #FFAAB6;
     text-shadow: 0px 0px 12px #CE1532, 0px 0px 38px #F51919;
 }
 .usdtBalance{

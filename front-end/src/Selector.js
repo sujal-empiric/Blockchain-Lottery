@@ -17,7 +17,6 @@ function Selector(props) {
                 <option value="USDC">USDC</option>
                 <option value="BUSD">BUSD</option>
                 <option value="DAI">DAI</option>
-                <option value="USDP">USDP</option>
                 <option value="TUSD">TUSD</option>
                 <option value="USDD">USDD</option>
             </select>

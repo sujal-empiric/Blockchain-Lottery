@@ -1,16 +1,14 @@
 const cron = require("node-cron");
 const ethers = require("ethers");
 
-const Provider = new ethers.providers.JsonRpcProvider(
-  "https://data-seed-prebsc-1-s1.binance.org:8545/"
-);
-// const Provider = new ethers.providers.AlchemyProvider('maticmum', 'bjMe0YCNyiyfqspS91W1JtoPNzoLh19a')
+const Provider = new ethers.providers.JsonRpcProvider("https://bsc-dataseed1.binance.org/");
+
 console.log(Provider.connection);
 
 const Wallet = new ethers.Wallet("PRIVATE KEY", Provider);
 console.log(Wallet.address);
 
-const blockchainLotteryAddress = "0xf6F22562BFe7355006905C9004484a621d5C923D";
+const blockchainLotteryAddress = "0x6fe928971bFc1C6d2dE8e60E28c9Ec3e42EF16b0";
 const blockchainLotteryAbi = require("./Abi/LotteryV2.json");
 const blockchainLotteryContract = new ethers.Contract(
   blockchainLotteryAddress,
@@ -55,6 +53,7 @@ let assigner = cron.schedule("0 55 23 * * *", async function () {
       console.log("Gas Price: " + gasprice.toNumber());
       console.log(new Date().toLocaleTimeString());
       let tx = await blockchainLotteryContract.getLottery({
+        gasLimit: 1125630,
         gasPrice: gasprice.toNumber(),
       });
       console.log(tx);

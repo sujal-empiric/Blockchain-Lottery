@@ -2,7 +2,7 @@
     text-align: center;
 }
 
-#root {
+.App {
     background-image: url("./static/Blue\ Neon.png");
     background-size: 100vw;
     background-repeat: no-repeat;

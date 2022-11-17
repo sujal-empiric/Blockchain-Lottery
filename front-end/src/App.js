@@ -1,6 +1,7 @@
 /* global BigInt */
 import { useState } from "react";
 import "./App.css";
+import './index.css'
 import { ethers } from "ethers";
 import usdtabi from "./static/Abi/USDT.json";
 import blockchainlotteryV1 from "./static/Abi/LotteryV1.json";
@@ -227,9 +228,7 @@ function App() {
         _address = "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56";
       } else if (window.tokenName === "DAI") {
         _address = "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3";
-      } else if (window.tokenName === "USDP") {
-        _address = "0xb3c11196A4f3b1da7c23d9FB0A3dDE9c6340934F";
-      } else if (window.tokenName === "TUSD") {
+      } else  if (window.tokenName === "TUSD") {
         _address = "0x14016E85a25aeb13065688cAFB43044C2ef86784";
       } else if (window.tokenName === "USDD") {
         _address = "0xd17479997F34dd9156Deef8F95A52D81D265be9c";
@@ -243,8 +242,6 @@ function App() {
         _address = "0x34A5Ac320C2ca28C9ECf2e508D33aB6C9674Be75";
       } else if (window.tokenName === "BUSD") {
         _address = "0xE8d6183476968a1E87Ec3F65E54d275BF98a6Ba3";
-      } else if (window.tokenName === "USDP") {
-        _address = "0x0D4DbFe3919c74209a4B34F0003d2D75A927Ab44";
       } else if (window.tokenName === "TUSD") {
         _address = "0xfF2A17B10b06e0B5C52073E6F5341D0d5a36F239";
       } else if (window.tokenName === "USDD") {
