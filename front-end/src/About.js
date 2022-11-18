@@ -37,7 +37,7 @@ function About() {
                     the smart contract
                     reaches its
                     conclusion, and with a
-                    SHE256 randomizer
+                    SHA256 randomizer
                     selects the lucky
                     ticket whose owner
                     wins the total value.</p>
@@ -47,7 +47,7 @@ function About() {
                     <h4 className='BoxHeading'>Buy a Lottery ticket</h4>
                     <p className='BoxContent'>In addition to the network
                         fee (BEP 20) an additional
-                        fee of 0.0013 BNB per
+                        fee of 0.00048976531 BNB per
                         transaction is charged.
                     </p>
                 </div>
