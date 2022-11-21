@@ -18,7 +18,7 @@ function About() {
                     in Binance Smart Chain <br/> (BEP 20), the contract code is
                     publicly available on the site and anyone can read it.
                     The terms of participation are simple and transparent. 
-                    Participant ties his cryptocurrency wallet,
+                    Participant connect his cryptocurrency wallet,
                     then chooses stablecoin with which he wants to pay for
                     a ticket on the network (BEP 20) and by the third click
                     buys a ticket 🎫 with a certain number, and that's it.
