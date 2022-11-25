@@ -10,7 +10,7 @@ function Footer() {
     <div className='FooterContainer'>
         <div className='LinkContainer'>
             <ul className='LinkList'>
-                <li className='Links'>Diablo.bet <a href='https://bscscan.com/address/0x6fe928971bfc1c6d2de8e60e28c9ec3e42ef16b0' target="_blank">Smart Contract</a> & <a href='/privacy-policy'>Privacy Policy</a></li>
+                <li className='Links'>Diablo.bet <a href='/smart-contract'>Smart Contract</a>, <a href='/privacy-policy'>Privacy Policy</a> & <a href='/about'>Our Story</a></li>
             </ul>
         </div>
         <div className='MainCopyLinkContainer'>

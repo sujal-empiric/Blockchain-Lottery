@@ -15,7 +15,6 @@ const blockchainLotteryContract = new ethers.Contract(
   blockchainLotteryAbi,
   Wallet
 );
-console.log(process.env.REACT_APP_BLOCKCHAIN_LOTTERY_ADDRESS);
 
 const sleep = (milliseconds) => {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));

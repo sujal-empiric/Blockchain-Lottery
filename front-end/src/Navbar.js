@@ -6,7 +6,7 @@ import './static/fonts/JuraMedium.ttf';
 
 import './Navbar.css'
 function Navbar(props) {
-
+  
   return (
     <div className='navbarContainer'>
       <nav className='navbar'>
