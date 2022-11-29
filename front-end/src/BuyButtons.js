@@ -60,20 +60,20 @@ function BuyButtons(props) {
         <>
           {props.status == 0 ? (
             <>
-              <div className="blink red">Approve Tokens</div>
-              <div className="red">Buy<br/>Ticket</div>
+              <div onClick={props.approveTokens} className="blink red">Approve Tokens</div>
+              <div onClick={props.depositeUSDT} className="red">Buy<br/>Ticket</div>
             </>
           ) : null}
           {props.status == 1 ? (
             <>
-              <div className="blue">Approve Tokens</div>
-              <div className="blink red">Buy<br/>Ticket</div>
+              <div onClick={props.approveTokens} className="blue">Approve Tokens</div>
+              <div onClick={props.depositeUSDT} className="blink red">Buy<br/>Ticket</div>
             </>
           ) : null}
           {props.status == 2 ? (
             <>
-              <div className="blue">Approve Tokens</div>
-              <div className="blue">Buy<br/>Ticket</div>
+              <div onClick={props.approveTokens} className="blue">Approve Tokens</div>
+              <div onClick={props.depositeUSDT} className="blue">Buy<br/>Ticket</div>
             </>
           ) : null}
         </>

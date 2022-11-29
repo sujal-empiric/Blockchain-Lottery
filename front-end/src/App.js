@@ -64,10 +64,12 @@ function App() {
           56: "https://bsc-dataseed.binance.org/",
           97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
         },
+        chainId:56
         // bridge: 'https://bridge.walletconnect.org',
       });
       setWalletType("WALLETCONNECT");
       console.log("Tringring QR Code");
+      // await provider.disconnect();
       await provider.enable();
       console.log("TRIGER FINISH");
       const Tprovider = new ethers.providers.Web3Provider(provider);
@@ -79,47 +81,12 @@ function App() {
       // Subscribe to chainId change
       provider.on("chainChanged", (chainId) => {
         console.log(chainId);
-        walletConnect();
       });
 
       const chainId = await provider.request({ method: "eth_chainId" });
+      console.log("this is chain id",chainId)
       const binanceTestChainId = "0x38";
-      if (chainId === binanceTestChainId) {
-        console.log("Bravo!, you are on the correct network");
-      } else {
-        console.log("oulalal, switch to the correct network");
-        try {
-          await provider.request({
-            method: "wallet_switchEthereumChain",
-            params: [{ chainId: binanceTestChainId }],
-          });
-          console.log("You have succefully switched to Binance Test network");
-        } catch (switchError) {
-          // This error code indicates that the chain has not been added to MetaMask.
-          if (switchError.code === 4902) {
-            try {
-              await provider.request({
-                method: "wallet_addEthereumChain",
-                params: [
-                  {
-                    chainId: "0x38",
-                    chainName: "BNB Smart Chain Mainnet",
-                    rpcUrls: ["https://bsc-dataseed1.binance.org/"],
-                    blockExplorerUrls: ["https://bscscan.com"],
-                    nativeCurrency: {
-                      symbol: "BNB",
-                      decimals: 18,
-                    },
-                  },
-                ],
-              });
-            } catch (addError) {
-              console.log(addError);
-            }
-          }
-          console.log("Failed to switch to the network");
-        }
-      }
+     
       const Tsigner = Tprovider.getSigner();
       console.log(Tsigner);
       let Taccounts = [];
