@@ -1,7 +1,7 @@
 /* global BigInt */
 import { useState } from "react";
 import "./App.css";
-import './index.css'
+import "./index.css";
 import { ethers } from "ethers";
 import usdtabi from "./static/Abi/USDT.json";
 import blockchainlotteryV1 from "./static/Abi/LotteryV1.json";
@@ -26,24 +26,30 @@ function App() {
   const [symbol, setSymbol] = useState(null);
   const [usdtBalance, setUsdtBalance] = useState(null);
 
-  const p = new ethers.providers.JsonRpcProvider('https://bsc-dataseed.binance.org/')
-  const c = new ethers.Contract('0x6fe928971bFc1C6d2dE8e60E28c9Ec3e42EF16b0',blockchainlotteryV2,p)
+  const p = new ethers.providers.JsonRpcProvider(
+    "https://bsc-dataseed.binance.org/"
+  );
+  const c = new ethers.Contract(
+    "0x6fe928971bFc1C6d2dE8e60E28c9Ec3e42EF16b0",
+    blockchainlotteryV2,
+    p
+  );
   let totalPrize = c.getTotalPrize();
-  
-  totalPrize.then((e)=>{
+
+  totalPrize.then((e) => {
     setPricePool(Number(e.toBigInt() / BigInt(10 ** 18)));
-  })
+  });
 
   if (window.ethereum) {
     window.ethereum.on("accountsChanged", function (accounts) {
       console.log(accounts);
-      setNetworkErr(null)
+      setNetworkErr(null);
       connectWallet();
     });
 
     window.ethereum.on("chainChanged", function (accounts) {
       console.log(accounts);
-      setNetworkErr(null)
+      setNetworkErr(null);
       connectWallet();
     });
   }
@@ -65,6 +71,55 @@ function App() {
       await provider.enable();
       console.log("TRIGER FINISH");
       const Tprovider = new ethers.providers.Web3Provider(provider);
+      provider.on("accountsChanged", (accounts) => {
+        console.log(accounts);
+        walletConnect();
+      });
+      
+      // Subscribe to chainId change
+      provider.on("chainChanged", (chainId) => {
+        console.log(chainId);
+        walletConnect();
+      });
+      
+      const chainId = await provider.request({ method: "eth_chainId" });
+    const binanceTestChainId = "0x38";
+    if (chainId === binanceTestChainId) {
+      console.log("Bravo!, you are on the correct network");
+    } else {
+      console.log("oulalal, switch to the correct network");
+      try {
+        await provider.request({
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId: binanceTestChainId }],
+        });
+        console.log("You have succefully switched to Binance Test network");
+      } catch (switchError) {
+        // This error code indicates that the chain has not been added to MetaMask.
+        if (switchError.code === 4902) {
+          try {
+            await provider.request({
+              method: "wallet_addEthereumChain",
+              params: [
+                {
+                  chainId: "0x38",
+                  chainName: "BNB Smart Chain Mainnet",
+                  rpcUrls: ["https://bsc-dataseed1.binance.org/"],
+                  blockExplorerUrls: ["https://bscscan.com"],
+                  nativeCurrency: {
+                    symbol: "BNB",
+                    decimals: 18,
+                  },
+                },
+              ],
+            });
+          } catch (addError) {
+            console.log(addError);
+          }
+        }
+        console.log("Failed to switch to the network");
+      }
+    }
       const Tsigner = Tprovider.getSigner();
       console.log(Tsigner);
       let Taccounts = [];
@@ -103,6 +158,45 @@ function App() {
     }
   };
   const connectWallet = async () => {
+    const chainId = await window.ethereum.request({ method: "eth_chainId" });
+    const binanceTestChainId = "0x38";
+    if (chainId === binanceTestChainId) {
+      console.log("Bravo!, you are on the correct network");
+    } else {
+      console.log("oulalal, switch to the correct network");
+      try {
+        await window.ethereum.request({
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId: binanceTestChainId }],
+        });
+        console.log("You have succefully switched to Binance Test network");
+      } catch (switchError) {
+        // This error code indicates that the chain has not been added to MetaMask.
+        if (switchError.code === 4902) {
+          try {
+            await window.ethereum.request({
+              method: "wallet_addEthereumChain",
+              params: [
+                {
+                  chainId: "0x38",
+                  chainName: "BNB Smart Chain Mainnet",
+                  rpcUrls: ["https://bsc-dataseed1.binance.org/"],
+                  blockExplorerUrls: ["https://bscscan.com"],
+                  nativeCurrency: {
+                    symbol: "BNB",
+                    decimals: 18,
+                  },
+                },
+              ],
+            });
+          } catch (addError) {
+            console.log(addError);
+          }
+        }
+        console.log("Failed to switch to the network");
+      }
+    }
+
     if (window.tokenName == null) {
       window.tokenName = "USDT";
     }
@@ -228,7 +322,7 @@ function App() {
         _address = "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56";
       } else if (window.tokenName === "DAI") {
         _address = "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3";
-      } else  if (window.tokenName === "TUSD") {
+      } else if (window.tokenName === "TUSD") {
         _address = "0x14016E85a25aeb13065688cAFB43044C2ef86784";
       } else if (window.tokenName === "USDD") {
         _address = "0xd17479997F34dd9156Deef8F95A52D81D265be9c";
@@ -320,14 +414,13 @@ function App() {
             // console.log("Ticket is successfully bought by the user");
             // setStatus(2);
 
-
             console.log("MULTIPLE CALLED");
             setTxStatus("Waiting for Transaction Confirmation");
             const tx = await window.lottery.primeUserBuyTicket(
               amount,
               window.ticketAmount,
               window.token.address,
-              {value: 489765310000000*window.ticketAmount}
+              { value: 489765310000000 * window.ticketAmount }
             );
             await tx.wait();
             setStatus(2);
@@ -339,7 +432,7 @@ function App() {
               amount,
               window.ticketAmount,
               window.token.address,
-              {value: 489765310000000*window.ticketAmount}
+              { value: 489765310000000 * window.ticketAmount }
             );
             await tx.wait();
             setStatus(2);

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.c95cfec0.css",
-    "main.js": "./static/js/main.3fdcb581.js",
+    "main.css": "./static/css/main.ab4123de.css",
+    "main.js": "./static/js/main.20dba0ff.js",
     "static/media/Flames.png": "./static/media/Flames.348f2254244835cb94d6.png",
     "static/media/Buy Ticket Button GIF.gif": "./static/media/Buy Ticket Button GIF.352521ef3dc258bf1a8a.gif",
     "static/media/Approve Token Button GIF.gif": "./static/media/Approve Token Button GIF.b0752fa84f848f83e98f.gif",
@@ -30,11 +30,11 @@
     "static/media/Header Logo.png": "./static/media/Header Logo.9b5bbf68c2e87aa67631.png",
     "static/media/Mini Logo.png": "./static/media/Mini Logo.92bee954ffd37abc60d9.png",
     "index.html": "./index.html",
-    "main.c95cfec0.css.map": "./static/css/main.c95cfec0.css.map",
-    "main.3fdcb581.js.map": "./static/js/main.3fdcb581.js.map"
+    "main.ab4123de.css.map": "./static/css/main.ab4123de.css.map",
+    "main.20dba0ff.js.map": "./static/js/main.20dba0ff.js.map"
   },
   "entrypoints": [
-    "static/css/main.c95cfec0.css",
-    "static/js/main.3fdcb581.js"
+    "static/css/main.ab4123de.css",
+    "static/js/main.20dba0ff.js"
   ]
 }

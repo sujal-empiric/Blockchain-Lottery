@@ -20,7 +20,7 @@ function Selector(props) {
                 <option value="TUSD">TUSD</option>
                 <option value="USDD">USDD</option>
             </select>
-            <input className="input" type="number" onChange={selectTicketAmount} placeholder="1"/>
+            <input className="input" type="number" onChange={selectTicketAmount} placeholder="Enter amount to bet"/>
             
         </div>
     );
