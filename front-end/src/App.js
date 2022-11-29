@@ -75,51 +75,51 @@ function App() {
         console.log(accounts);
         walletConnect();
       });
-      
+
       // Subscribe to chainId change
       provider.on("chainChanged", (chainId) => {
         console.log(chainId);
         walletConnect();
       });
-      
+
       const chainId = await provider.request({ method: "eth_chainId" });
-    const binanceTestChainId = "0x38";
-    if (chainId === binanceTestChainId) {
-      console.log("Bravo!, you are on the correct network");
-    } else {
-      console.log("oulalal, switch to the correct network");
-      try {
-        await provider.request({
-          method: "wallet_switchEthereumChain",
-          params: [{ chainId: binanceTestChainId }],
-        });
-        console.log("You have succefully switched to Binance Test network");
-      } catch (switchError) {
-        // This error code indicates that the chain has not been added to MetaMask.
-        if (switchError.code === 4902) {
-          try {
-            await provider.request({
-              method: "wallet_addEthereumChain",
-              params: [
-                {
-                  chainId: "0x38",
-                  chainName: "BNB Smart Chain Mainnet",
-                  rpcUrls: ["https://bsc-dataseed1.binance.org/"],
-                  blockExplorerUrls: ["https://bscscan.com"],
-                  nativeCurrency: {
-                    symbol: "BNB",
-                    decimals: 18,
+      const binanceTestChainId = "0x38";
+      if (chainId === binanceTestChainId) {
+        console.log("Bravo!, you are on the correct network");
+      } else {
+        console.log("oulalal, switch to the correct network");
+        try {
+          await provider.request({
+            method: "wallet_switchEthereumChain",
+            params: [{ chainId: binanceTestChainId }],
+          });
+          console.log("You have succefully switched to Binance Test network");
+        } catch (switchError) {
+          // This error code indicates that the chain has not been added to MetaMask.
+          if (switchError.code === 4902) {
+            try {
+              await provider.request({
+                method: "wallet_addEthereumChain",
+                params: [
+                  {
+                    chainId: "0x38",
+                    chainName: "BNB Smart Chain Mainnet",
+                    rpcUrls: ["https://bsc-dataseed1.binance.org/"],
+                    blockExplorerUrls: ["https://bscscan.com"],
+                    nativeCurrency: {
+                      symbol: "BNB",
+                      decimals: 18,
+                    },
                   },
-                },
-              ],
-            });
-          } catch (addError) {
-            console.log(addError);
+                ],
+              });
+            } catch (addError) {
+              console.log(addError);
+            }
           }
+          console.log("Failed to switch to the network");
         }
-        console.log("Failed to switch to the network");
       }
-    }
       const Tsigner = Tprovider.getSigner();
       console.log(Tsigner);
       let Taccounts = [];
@@ -158,42 +158,44 @@ function App() {
     }
   };
   const connectWallet = async () => {
-    const chainId = await window.ethereum.request({ method: "eth_chainId" });
-    const binanceTestChainId = "0x38";
-    if (chainId === binanceTestChainId) {
-      console.log("Bravo!, you are on the correct network");
-    } else {
-      console.log("oulalal, switch to the correct network");
-      try {
-        await window.ethereum.request({
-          method: "wallet_switchEthereumChain",
-          params: [{ chainId: binanceTestChainId }],
-        });
-        console.log("You have succefully switched to Binance Test network");
-      } catch (switchError) {
-        // This error code indicates that the chain has not been added to MetaMask.
-        if (switchError.code === 4902) {
-          try {
-            await window.ethereum.request({
-              method: "wallet_addEthereumChain",
-              params: [
-                {
-                  chainId: "0x38",
-                  chainName: "BNB Smart Chain Mainnet",
-                  rpcUrls: ["https://bsc-dataseed1.binance.org/"],
-                  blockExplorerUrls: ["https://bscscan.com"],
-                  nativeCurrency: {
-                    symbol: "BNB",
-                    decimals: 18,
+    if (window.ethereum) {
+      const chainId = await window.ethereum.request({ method: "eth_chainId" });
+      const binanceTestChainId = "0x38";
+      if (chainId === binanceTestChainId) {
+        console.log("Bravo!, you are on the correct network");
+      } else {
+        console.log("oulalal, switch to the correct network");
+        try {
+          await window.ethereum.request({
+            method: "wallet_switchEthereumChain",
+            params: [{ chainId: binanceTestChainId }],
+          });
+          console.log("You have succefully switched to Binance Test network");
+        } catch (switchError) {
+          // This error code indicates that the chain has not been added to MetaMask.
+          if (switchError.code === 4902) {
+            try {
+              await window.ethereum.request({
+                method: "wallet_addEthereumChain",
+                params: [
+                  {
+                    chainId: "0x38",
+                    chainName: "BNB Smart Chain Mainnet",
+                    rpcUrls: ["https://bsc-dataseed1.binance.org/"],
+                    blockExplorerUrls: ["https://bscscan.com"],
+                    nativeCurrency: {
+                      symbol: "BNB",
+                      decimals: 18,
+                    },
                   },
-                },
-              ],
-            });
-          } catch (addError) {
-            console.log(addError);
+                ],
+              });
+            } catch (addError) {
+              console.log(addError);
+            }
           }
+          console.log("Failed to switch to the network");
         }
-        console.log("Failed to switch to the network");
       }
     }
 
