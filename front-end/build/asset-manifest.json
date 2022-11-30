@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "./static/css/main.5a8453f6.css",
+    "main.js": "./static/js/main.b12b52f8.js",
+    "static/media/Flames.png": "./static/media/Flames.348f2254244835cb94d6.png",
+    "static/media/Buy Ticket Button GIF.gif": "./static/media/Buy Ticket Button GIF.352521ef3dc258bf1a8a.gif",
+    "static/media/Approve Token Button GIF.gif": "./static/media/Approve Token Button GIF.b0752fa84f848f83e98f.gif",
+    "static/media/Wallet Connect btn.png": "./static/media/Wallet Connect btn.9549dc876444a85557b3.png",
+    "static/media/Diablo.gif": "./static/media/Diablo.ae1ed41e9b2a59e9e3f7.gif",
+    "static/media/Evgeniy Sivokon.png": "./static/media/Evgeniy Sivokon.87b176a62311aed38c12.png",
+    "static/media/Oleh Miller.png": "./static/media/Oleh Miller.cbc5741675c7f91237f4.png",
+    "static/media/Niral Dhameliya.png": "./static/media/Niral Dhameliya.220789bc02be472b1f5c.png",
+    "static/media/Anna Kim.png": "./static/media/Anna Kim.d43b617d70fb89a7bff5.png",
+    "static/media/Grant Vardanyan.png": "./static/media/Grant Vardanyan.f97f08da7eda9ea49d89.png",
+    "static/media/Blue Neon.png": "./static/media/Blue Neon.555e7cc8f743645f884d.png",
+    "static/media/Approve Token Mobile RED.png": "./static/media/Approve Token Mobile RED.0b058c88e561c3d87bcf.png",
+    "static/media/Buy Ticket Mobile RED.png": "./static/media/Buy Ticket Mobile RED.81857459e1b8bc9230f1.png",
+    "static/media/Approve Token Mobile BLUE.png": "./static/media/Approve Token Mobile BLUE.63809400656a4b9681cd.png",
+    "static/media/Buy Ticket Mobile BLUE.png": "./static/media/Buy Ticket Mobile BLUE.8cc08803c68e3553ae49.png",
+    "static/media/Approve Token Button BLUE.png": "./static/media/Approve Token Button BLUE.63537a9dfa8a43b17495.png",
+    "static/media/Buy Ticket Button BLUE.png": "./static/media/Buy Ticket Button BLUE.521e170c29b32625bdc7.png",
+    "static/media/Buy Ticket Button RED.png": "./static/media/Buy Ticket Button RED.4df7e6c5b77633da1938.png",
+    "static/media/Metamask btn.png": "./static/media/Metamask btn.c4453eb7ef3f40ebfdef.png",
+    "static/media/Dollar.png": "./static/media/Dollar.1a809d3d686507f25780.png",
+    "static/media/Bell.png": "./static/media/Bell.42e6e2fab51c6626e026.png",
+    "static/media/JuraMedium.ttf": "./static/media/JuraMedium.c4be341c3bba404ef161.ttf",
+    "static/media/Lock.png": "./static/media/Lock.67d79f7e733fb4add3a6.png",
+    "static/media/JockeyOne-Regular.ttf": "./static/media/JockeyOne-Regular.05d8ac0992bf09748fb2.ttf",
+    "static/media/SmartContractQR.svg": "./static/media/SmartContractQR.cf11b7ca0686dc75f462374b8b9b8a3c.svg",
+    "static/media/Header Logo.png": "./static/media/Header Logo.9b5bbf68c2e87aa67631.png",
+    "static/media/Mini Logo.png": "./static/media/Mini Logo.92bee954ffd37abc60d9.png",
+    "index.html": "./index.html",
+    "main.5a8453f6.css.map": "./static/css/main.5a8453f6.css.map",
+    "main.b12b52f8.js.map": "./static/js/main.b12b52f8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5a8453f6.css",
+    "static/js/main.b12b52f8.js"
+  ]
+}
