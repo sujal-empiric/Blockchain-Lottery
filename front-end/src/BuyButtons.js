@@ -54,26 +54,56 @@ function BuyButtons(props) {
       buy = BuyTicketBLUE;
     }
   }
+  
   return (
     <div className="buttonContainer">
       {isMobileDevice ? (
         <>
-          {props.status == 0 ? (
+          {props.walletType==null?<>
+              <div className="mainbtns">
+                Approve Tokens
+              </div>
+              <div className="mainbtns">
+                Buy
+                <br />
+                Ticket
+              </div>
+            </>:null}
+ 
+          {props.status == 0 && props.walletType!==null ? (
             <>
-              <div onClick={props.approveTokens} className="blink red">Approve Tokens</div>
-              <div onClick={props.depositeUSDT} className="red">Buy<br/>Ticket</div>
+              <div onClick={props.approveTokens} className="blink red">
+                Approve Tokens
+              </div>
+              <div onClick={props.depositeUSDT} className="red">
+                Buy
+                <br />
+                Ticket
+              </div>
             </>
           ) : null}
           {props.status == 1 ? (
             <>
-              <div onClick={props.approveTokens} className="blue">Approve Tokens</div>
-              <div onClick={props.depositeUSDT} className="blink red">Buy<br/>Ticket</div>
+              <div onClick={props.approveTokens} className="mainbtns blue">
+                Approve Tokens
+              </div>
+              <div onClick={props.depositeUSDT} className="mainbtns blink red">
+                Buy
+                <br />
+                Ticket
+              </div>
             </>
           ) : null}
           {props.status == 2 ? (
             <>
-              <div onClick={props.approveTokens} className="blue">Approve Tokens</div>
-              <div onClick={props.depositeUSDT} className="blue">Buy<br/>Ticket</div>
+              <div onClick={props.approveTokens} className="mainbtns blue">
+                Approve Tokens
+              </div>
+              <div onClick={props.depositeUSDT} className="mainbtns blue">
+                Buy
+                <br />
+                Ticket
+              </div>
             </>
           ) : null}
         </>

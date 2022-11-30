@@ -5,7 +5,11 @@ function Selector(props) {
     const selectToken = async (e)=>{
         console.log(e.target.value)
         window.tokenName = e.target.value
-        props.connectWallet()
+        if(props.walletType=="WALLETCONNECT"){
+            props.walletConnect()
+        }else{
+            props.connectWallet()
+        }
     }
     const selectTicketAmount = (e)=>{
         window.ticketAmount = Number(e.target.value)

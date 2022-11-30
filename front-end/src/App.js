@@ -62,12 +62,10 @@ function App() {
       var provider = new WalletConnectProvider.default({
         rpc: {
           56: "https://bsc-dataseed.binance.org/",
-          97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
         },
-        chainId:56
-        // bridge: 'https://bridge.walletconnect.org',
+        chainId:56,
+        bridge: 'https://bridge.walletconnect.org/',
       });
-      setWalletType("WALLETCONNECT");
       console.log("Tringring QR Code");
       // await provider.disconnect();
       await provider.enable();
@@ -101,6 +99,8 @@ function App() {
       let TchainId = provider.chainId;
       console.log(TchainId);
       setChainId(TchainId);
+      setWalletType("WALLETCONNECT");
+
       if (TchainId === 137) {
         console.log(TchainId);
         createLotteryContract(TchainId, blockchainlotteryV1, Tsigner);
@@ -435,13 +435,14 @@ function App() {
       {txStatus ? <Errors error={txStatus}></Errors> : null}
 
       {chainId === 97 || chainId === 56 ? (
-        <Selector connectWallet={connectWallet} />
+        <Selector connectWallet={connectWallet} walletType={walletType} walletConnect={walletConnect}/>
       ) : null}
 
       <BuyButtons
         approveTokens={approveTokens}
         depositeUSDT={buyTicket}
         status={status}
+        walletType={walletType}
       ></BuyButtons>
       <About></About>
       <Footer></Footer>

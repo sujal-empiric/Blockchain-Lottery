@@ -20,7 +20,7 @@
   margin-left: -6rem;
 }
 .blink {
-  animation: blink linear infinite 0.5s;
+  animation: blink linear infinite 0.7s;
 }
 .red {
   color: #ffaab6;
@@ -61,6 +61,26 @@
   margin-top: 1.2rem;
   margin-bottom: 1.2rem;
 }
+
+
+.mainbtns{
+  color: #fff;
+  font-family: "Jura";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  height: 46px;
+  width: 148px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
 
 @media only screen and (max-width: 830px) {
   html {

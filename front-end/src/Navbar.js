@@ -20,8 +20,8 @@ function Navbar(props) {
         
         {props.accounts ? null :
           <div className='buttonsContainer'>
-            <img className='connectButtons' onClick={props.connectWallet} src={MetamaskButton} alt="NO IMG FOUND"></img>
-            <img className='connectButtons' onClick={props.walletConnect} src={WalletConnectButton} alt="NO IMG FOUND"></img>
+            <div className='connectButtons blinkA' onClick={props.connectWallet}>CONNECT<br/>METAMASK</div>
+            <div className='connectButtons blinkB' onClick={props.walletConnect}>WALLET<br/>CONNECT</div>
           </div>}
       </nav>
     </div>

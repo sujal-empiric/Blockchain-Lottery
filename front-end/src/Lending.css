@@ -12,6 +12,7 @@
     height: fit-content;
 }
 #mainLogo{
+    mix-blend-mode: lighten;
     height: 42rem;
 }
 #headingContainer{
