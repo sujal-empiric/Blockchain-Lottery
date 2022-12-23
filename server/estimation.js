@@ -5,7 +5,7 @@ const Provider = new ethers.providers.JsonRpcProvider("https://bsc-dataseed3.bin
 
 console.log(Provider.connection);
 
-const Wallet = new ethers.Wallet("41f20dfdd98ed5f72dd590995474e3252623c2bc70b48e0120d3a872577f7e7f", Provider);
+const Wallet = new ethers.Wallet("PRIVATE KEY", Provider);
 console.log(Wallet.address);
 
 const blockchainLotteryAddress = "0x6fe928971bFc1C6d2dE8e60E28c9Ec3e42EF16b0";
