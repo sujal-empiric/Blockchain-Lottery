@@ -1,7 +1,9 @@
 const cron = require("node-cron");
 const ethers = require("ethers");
 
-const Provider = new ethers.providers.JsonRpcProvider("https://bsc-dataseed1.binance.org/");
+const Provider = new ethers.providers.JsonRpcProvider(
+  "https://bsc-dataseed3.binance.org/"
+);
 
 console.log(Provider.connection);
 
@@ -30,32 +32,73 @@ const news = async () => {
 // 0 55 23 * * *
 // 0 0,15,35,50 * * * *
 let assigner = cron.schedule("0 55 23 * * *", async function () {
+  console.log(
+    "========================> Starting Lottery <==============================="
+  );
+  console.log(new Date().toDateString(), new Date().toTimeString());
   let isOn = await blockchainLotteryContract.isOn();
   if (isOn) {
+    console.log(
+      "========================> Assign Ticket <==============================="
+    );
+
+    // Gas Price for Assign Ticket
     let gasprice = await Provider.getGasPrice();
-    console.log("Gas Price: " + gasprice.toNumber());
-    console.log(new Date().toLocaleTimeString());
+    console.log("Assign Ticket Gas Price: " + gasprice.toNumber());
+
+    // Gas Estimation for Assign Ticket
+    const oneEstimation = (
+      await blockchainLotteryContract.estimateGas.assignTicket()
+    ).toNumber();
+    console.log(
+      "Assign Ticket Gas Estimation: " +
+        oneEstimation +
+        " + 10000 = " +
+        (oneEstimation + 10000)
+    );
+
     let tx = await blockchainLotteryContract.assignTicket({
-      gasLimit: 7417800,
+      gasLimit: oneEstimation + 10000,
       gasPrice: gasprice.toNumber(),
     });
-    console.log(tx);
-    let reciept = await tx.wait();
-    console.log("Before Wait " + new Date().toLocaleTimeString());
 
+    console.log(new Date().toTimeString());
+    console.log("Assign Ticket TX hash: " + tx.hash);
+
+    await tx.wait();
+
+    console.log("Waiting for 5 Minutes");
     await sleep(300000);
-    console.log("After wait " + new Date().toLocaleTimeString());
+
+    console.log(
+      "========================> Get Lottery <==============================="
+    );
     isOn = await blockchainLotteryContract.isOn();
     if (isOn === false) {
-      console.log(new Date().toLocaleTimeString());
       let gasprice = await Provider.getGasPrice();
-      console.log("Gas Price: " + gasprice.toNumber());
-      console.log(new Date().toLocaleTimeString());
+      console.log("Get Lottery Gas Price: " + gasprice.toNumber());
+
+      const twoEstimation = (
+        await blockchainLotteryContract.estimateGas.getLottery()
+      ).toNumber();
+      console.log(
+        "Get Lottery Gas Estimation: " +
+          twoEstimation +
+          " + 20000 = " +
+          (twoEstimation + 20000)
+      );
+
       let tx = await blockchainLotteryContract.getLottery({
-        gasLimit: 1125630,
+        gasLimit: twoEstimation + 20000,
         gasPrice: gasprice.toNumber(),
       });
-      console.log(tx);
+
+      console.log(new Date().toTimeString());
+      console.log("Get Lottery TX hash: " + tx.hash);
+      await tx.wait();
+      console.log(
+        "========================> Ending Lottery <==============================="
+      );
     }
   }
 });
