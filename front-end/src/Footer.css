@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.FooterContainer{
+    width: 100%;
+}
+.NeonFlames{
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: screen;
+}
+.LinkContainer{
+    padding-top: 21rem;
+}
+.LinkList{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    gap: 1rem;
+}
+.Links{
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.80rem;
+    font-feature-settings: 'salt' on, 'liga' off;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+}
+.a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.a:hover{
+    text-decoration: underline;
+    color: #FFAAB6;
+    text-shadow: 0px 0px 12px #CE1532, 0px 0px 38px #F51919;
+}
+.MainCopyLinkContainer{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3.6rem;
+}
+.copyright{
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.92rem;
+    font-feature-settings: 'salt' on, 'liga' off;
+    color: #D9DBE1;
+}
+.minilogo{
+    height: 4.02rem;
+    width: 3.48rem;
+}
+.copyrightContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.9rem;
+}
+.linklogos{
+    height: 3.6rem;
+    width: 3.6rem;
+}
+.linklogoContainer{
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+}
+
+@media only screen and (max-width: 475px) {
+    html{
+        font-size: 55%;
+    }
+    .LinkList{
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        gap: 1rem;
+    }
+    .Links{
+        font-family: 'Jura';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.5rem;
+        font-feature-settings: 'salt' on, 'liga' off;
+        color: #FFFFFF;
+    }
+    .LinkContainer{
+        padding-top: 4rem;
+    }
+}
+
+
+@media only screen and (max-width: 830px) {
+    html{
+        font-size: 55%;
+    }
+}

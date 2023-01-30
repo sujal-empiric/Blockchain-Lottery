@@ -1,0 +1,15 @@
+{
+  "short_name": "Blockchain Lottery",
+  "name": "Blockchain Lottery",
+  "start_url": ".",
+  "display": "standalone",
+  "icons":[
+    {
+      "src":"favicon.png",
+      "type":"image/png",
+      "sizes":"190x190"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

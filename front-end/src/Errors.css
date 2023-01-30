@@ -1,0 +1,23 @@
+.errormsg {
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.1rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFAAB6;
+    text-shadow: 0px 0px 12px #CE1532, 0px 0px 38px #F51919;
+}
+
+
+@media only screen and (max-width: 830px) {
+    html{
+        font-size: 55%;
+    }
+}
+
+@media only screen and (max-width: 475px) {
+    html{
+        font-size: 55%;
+    }
+}

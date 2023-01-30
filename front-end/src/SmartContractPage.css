@@ -1,0 +1,53 @@
+.mainContractContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100vw;
+}
+.QRCode {
+    height: 26.88rem;
+    width: 26.88rem;
+}
+.smartContractText {
+    margin-top: 7rem;
+    color: #53abfd;
+    font-family: "Jura";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4.68rem;
+    text-shadow: 0px 0px 17px #53d5fd, 0px 0px 41px #191dd5;
+}
+.smartContactDetail{
+    color: white;
+    font-family: "Jura";
+    font-style: normal;
+    font-size: 2.28rem;
+    text-align: center;
+
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    max-width: 60rem;
+}
+.here{
+    text-shadow: 0px 0px 17px #53d5fd, 0px 0px 41px #191dd5;
+    color: #53abfd;
+    
+}
+
+
+
+@media only screen and (max-width: 830px) {
+    html{
+        font-size: 55%;
+    }
+}
+
+@media only screen and (max-width: 475px) {
+    html{
+        font-size: 55%;
+    }
+    
+}
+
+

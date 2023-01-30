@@ -1,0 +1,210 @@
+#headerLogo {
+  padding: 0.6rem;
+}
+.navbarContainer {
+  margin: 0rem;
+  padding: 0rem;
+}
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@font-face {
+  font-family: "jura";
+  src: local("jura"), url("./static/fonts/JuraMedium.ttf") format("truetype");
+  font-weight: bold;
+}
+.navAccountNumber {
+  font-family: "Jura";
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffaab6;
+  text-shadow: 0px 0px 12px #ce1532, 0px 0px 38px #f51919;
+}
+.usdtBalance {
+  color: #ffaab6;
+  font-family: "Jura";
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 0px 0px 0.72rem #ce1532, 0px 0px 2.28rem #f51919;
+}
+.buttonsContainer {
+  display: flex;
+  gap: 6.3rem;
+}
+
+.hamburger {
+  width: 6rem;
+  display: none;
+  position: absolute;
+  top: 3rem;
+  left: 0.6rem;
+}
+
+.connectButtons {
+  height: 3.5rem;
+  width: 14.9rem;
+  cursor: pointer;
+}
+.navLogo {
+  max-height: 7.32rem;
+  max-width: 19.74rem;
+}
+.connectButtons {
+  color: #ffaab6;
+  text-shadow: 0px 0px 12px #ce1532, 0px 0px 38px #f51919;
+  font-family: "Jura";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.98rem;
+  border: 1px solid #53d5fd;
+  box-shadow: 0px 0px 10px #53d5fd, 0px 0px 29px #191dd5;
+  border-radius: 10px;
+  height: 4.2rem;
+  width: 15.18rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.blinkA {
+  animation: blinkA linear infinite 3s;
+}
+.blinkB {
+  animation: blinkB linear infinite 3s;
+}
+
+@media only screen and (max-width: 830px) {
+  html {
+    font-size: 55%;
+  }
+  .navbar {
+    flex-direction: row;
+  }
+  .buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+  #tronButton {
+    display: none;
+  }
+  .connectButtons {
+    height: 15rem;
+    width: 37rem;
+  }
+  .connectButtons:first-child {
+    margin-bottom: -6rem;
+  }
+  .navLogo {
+    height: 10rem;
+    width: 30rem;
+  }
+  .datacontainer {
+    flex-direction: column;
+  }
+  .navAccountNumber {
+    color: #ffaab6;
+    font-family: "Jura";
+    font-size: 5rem;
+    font-weight: 700;
+    text-shadow: 0px 0px 12px #ce1532, 0px 0px 38px #f51919;
+  }
+  .usdtBalance {
+    color: #ffaab6;
+    font-family: "Jura";
+    font-size: 5rem;
+    font-weight: 700;
+    text-shadow: 0px 0px 0.72rem #ce1532, 0px 0px 2.28rem #f51919;
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  html {
+    font-size: 55%;
+  }
+  .navbar {
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 1rem;
+    width: 100vw;
+  }
+  .navLogo {
+    height: 10vw;
+    width: 30vw;
+  }
+  .datacontainer {
+    display: flex;
+  }
+  .navAccountNumber {
+    color: #ffaab6;
+    font-family: "Jura";
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0px 0px 12px #ce1532, 0px 0px 38px #f51919;
+  }
+  .usdtBalance {
+    color: #ffaab6;
+    font-family: "Jura";
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0px 0px 0.72rem #ce1532, 0px 0px 2.28rem #f51919;
+  }
+  .buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .connectButtons {
+    color: #ffaab6;
+    text-shadow: 0px 0px 12px #ce1532, 0px 0px 38px #f51919;
+    font-family: "Jura";
+    font-style: normal;
+    font-weight: 700;
+    /* font-size: 1.98rem; */
+    font-size: 4vw;
+    border: 1px solid #53d5fd;
+    box-shadow: 0px 0px 10px #53d5fd, 0px 0px 29px #191dd5;
+    border-radius: 10px;
+    height: 4.9rem;
+    width: 30vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+}
+
+@keyframes blinkA {
+  from {
+    border: 1px solid #53D5FD;
+    box-shadow: 0px 0px 20px  #191DD5;
+  }
+  50% {
+    box-shadow: 0px 0px 20px #53D5FD, 0px 0px 14px #191DD5;
+  }
+  to {
+    border: 1px solid #53D5FD;
+    box-shadow: 0px 0px 20px #191DD5;
+  }
+}
+
+@keyframes blinkB {
+  from{
+    box-shadow: 0px 0px 20px #53D5FD, 0px 0px 14px #191DD5;
+  }
+  50%{
+    border: 1px solid #53D5FD;
+    box-shadow: 0px 0px 20px  #191DD5;
+  }
+  to{
+    box-shadow: 0px 0px 20px #53D5FD, 0px 0px 14px #191DD5;
+  }
+}

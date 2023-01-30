@@ -1,0 +1,82 @@
+.mainAboutContainer {
+}
+.ourteamheading {
+  font-family: "Jura";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 4.68rem;
+  text-shadow: 0px 0px 17px #53d5fd, 0px 0px 41px #191dd5;
+  text-align: center;
+  text-transform: uppercase;
+  color: #53abfd;
+  margin-top: 3.6rem;
+  margin-bottom: 3.6rem;
+}
+.imagesContainer {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+
+}
+.imageContainer {
+  max-width: 18rem;
+  flex-direction: column;
+  display: flex;
+}
+.image {
+
+}
+
+.h5 {
+  font-family: "Jura";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-left: 1.38rem;
+}
+
+#flag {
+  width: 1.2rem;
+}
+
+.ourstoryheading {
+  font-family: "Jura";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 4.68rem;
+  text-shadow: 0px 0px 17px #53d5fd, 0px 0px 41px #191dd5;
+  text-align: center;
+  text-transform: uppercase;
+  color: #53abfd;
+  margin-top: 10rem;
+  margin-bottom: 3.6rem;
+}
+
+.storyContainer {
+  font-family: "Jura";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.story {
+  width: 90rem;
+}
+
+
+@media only screen and (max-width: 830px) {
+    html{
+        font-size: 55%;
+    }
+}
+
+@media only screen and (max-width: 475px) {
+    html{
+        font-size: 55%;
+    }
+}

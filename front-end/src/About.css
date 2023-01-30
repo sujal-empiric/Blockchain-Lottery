@@ -1,0 +1,204 @@
+.MainContentContainer {
+    text-align: center;
+}
+
+.App {
+    background-image: url("./static/Blue\ Neon.png");
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    background-position: 0px 1263px;
+}
+
+.MainHeading {
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 6.06rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: #53D5FD;
+    font-feature-settings: 'salt'on, 'liga'off;
+    text-shadow: 0px 0px 1.02rem #53D5FD, 0px 0px 2.46rem #191DD5;
+}
+
+.MainContent {
+    font-family: 'Jura';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2.1rem;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 4.2rem;
+    padding-top: 0px;
+}
+
+.BoxContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.Box {
+    border: 0.12rem solid #53D5FD;
+    box-shadow: 0px 0px 0.72rem 0.18rem #53D5FD, 0rem 0px 2.28rem 0.96rem #191DD5;
+    border-radius: 0.6rem;
+    width: 25.14rem;
+    height: 37.38rem;
+    padding: 1.8rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.BoxHeading {
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 1.92rem;
+    /* or 107% */
+
+    text-align: center;
+    text-transform: uppercase;
+    font-feature-settings: 'salt'on, 'liga'off;
+    color: #53D5FD;
+    text-shadow: 0px 0px 0.72rem #53D5FD, 0px 0px 2.28rem #191DD5;
+}
+
+.BoxContent {
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.98rem;
+
+    /* or 117% */
+
+    text-align: center;
+    font-feature-settings: 'salt'on, 'liga'off;
+
+    color: #FFFFFF;
+}
+
+.BoxIcon {
+    height: 4.32rem;
+    width: 4.2rem;
+}
+
+
+@media only screen and (max-width: 830px) {
+    html {
+        font-size: 55%;
+    }
+
+    .Box {
+        border: 0.12rem solid #53D5FD;
+        box-shadow: 0px 0px 0.72rem 0.18rem #53D5FD, 0rem 0px 2.28rem 0.96rem #191DD5;
+        border-radius: 0.6rem;
+        width: 25vw;
+        min-height: 37.38rem;
+        max-height: fit-content;
+        padding: 1.8rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 475px) {
+    html {
+        font-size: 55%;
+    }
+
+    .MainHeading {
+        font-size: 3rem;
+    }
+    .MainContent {
+        font-family: 'Jura';
+        font-weight: 700;
+        font-style: normal;
+        font-size: 2rem;
+        text-align: center;
+        color: #FFFFFF;
+        padding: 2.2rem;
+        padding-top: 0px;
+    }
+    .Box {
+        border: 0.12rem solid #53D5FD;
+        box-shadow: 0px 0px 0.72rem 0.18rem #53D5FD, 0rem 0px 2.28rem 0.96rem #191DD5;
+        border-radius: 1.5rem;
+        width: 64vw;
+        height: 40rem;
+        min-height: 0rem;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex-shrink: 0;
+        margin-bottom: 35px;
+        margin-top: 35px;
+        max-height: fit-content;
+        transform-origin: center center;
+    transform: scale(1);
+    scroll-snap-align: center;
+    }
+    .BoxContainer::-webkit-scrollbar {
+        display: none;
+    }
+
+    #b-1{
+        margin-left: 56px;
+    }
+    #b-3{
+        margin-right: 56px;
+    }
+
+    .BoxContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 5rem;
+        width: 100%;
+        overflow: scroll;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+    .BoxHeading {
+        font-family: 'Jura';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        text-transform: uppercase;
+        font-feature-settings: 'salt'on, 'liga'off;
+        color: #53D5FD;
+        text-shadow: 0px 0px 0.72rem #53d5fd, 0px 0px 2.28rem #191dd5;
+        margin-top: 1rem;
+    }
+    .BoxIcon {
+        height: 5rem;
+        width: 5rem;
+
+    }
+    .BoxContent {
+        font-family: 'Jura';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2rem;
+        text-align: center;
+        font-feature-settings: 'salt'on, 'liga'off;
+        padding: 1.5rem;
+        color: #FFFFFF;
+    }
+
+    #root {
+        background-image: url("./static/Blue\ Neon.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 231px;
+    }
+}

@@ -1,0 +1,188 @@
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.buttons {
+  height: 54rem;
+  mix-blend-mode: screen;
+  width: 51rem;
+  margin-top: -100px;
+  z-index: 0;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+}
+
+#depositeBtn {
+  margin-left: -6rem;
+}
+.blink {
+  animation: blink linear infinite 0.7s;
+}
+.red {
+  color: #ffaab6;
+  text-shadow: 0px 0px 12px #ce1532, 0px 0px 38px #f51919;
+  font-family: "Jura";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  border: 1px solid #53d5fd;
+  box-shadow: 0px 0px 10px #53d5fd, 0px 0px 29px #191dd5;
+  border-radius: 6px;
+  height: 46px;
+  width: 148px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.blue {
+  color: #53abfd;
+  text-shadow: 0px 0px 12px #53d5fd, 0px 0px 38px #191dd5;
+  font-family: "Jura";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  border: 1px solid #53d5fd;
+  box-shadow: 0px 0px 10px #53d5fd, 0px 0px 29px #191dd5;
+  border-radius: 6px;
+  height: 46px;
+  width: 148px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+
+.mainbtns{
+  color: #fff;
+  font-family: "Jura";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  height: 46px;
+  width: 148px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+
+@media only screen and (max-width: 830px) {
+  html {
+    font-size: 55%;
+  }
+
+  .buttonContainer {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+  }
+
+  .buttons {
+    height: 53rem;
+    width: 50vw;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    object-fit: cover;
+  }
+
+  #depositeBtn {
+    margin-left: 0rem;
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  html {
+    font-size: 55%;
+  }
+
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    gap: 1.2rem;
+  }
+
+  .buttons {
+    height: 22vw;
+    width: 43vw;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    object-fit: cover;
+    margin-top: 0px;
+  }
+
+  #depositeBtn {
+    margin-left: 0rem;
+  }
+}
+
+@keyframes blink {
+  78% {
+    color: inherit;
+    text-shadow: inherit;
+    border-color: inherit;
+  }
+  79% {
+    color: #333;
+    border-color: #333;
+    box-shadow: 0px 0px 10px #333, 0px 0px 29px #333;
+  }
+  80% {
+    text-shadow: none;
+  }
+  81% {
+    color: inherit;
+    border-color: inherit;
+
+    text-shadow: inherit;
+  }
+  82% {
+    color: #333;
+    border-color: #333;
+    box-shadow: 0px 0px 10px #333, 0px 0px 29px #333;
+
+    text-shadow: none;
+  }
+  83% {
+    color: inherit;
+    border-color: inherit;
+
+    text-shadow: inherit;
+  }
+  92% {
+    color: #333;
+    border-color: #333;
+    box-shadow: 0px 0px 10px #333, 0px 0px 29px #333;
+    text-shadow: none;
+  }
+  92.5% {
+    color: inherit;
+    border-color: inherit;
+
+    text-shadow: inherit;
+  }
+}

@@ -1,0 +1,85 @@
+.selectorBtn {
+    height: 76.17px;
+    width: 317.08px;
+    border: 2px solid #53D5FD;
+    box-shadow: 0px 0px 12px 3px #53D5FD, 0px 0px 38px 16px #191DD5;
+    border-radius: 10px;
+    background-color: black;
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.1rem;
+    color: #FFAAB6;
+}
+
+.tokenSelector {
+    height: 4.57rem;
+    width: 19.02rem;
+    border: 2px solid #53D5FD;
+    box-shadow: 0px 0px 12px 3px #53D5FD, 0px 0px 38px 16px #191DD5;
+    border-radius: 10px;
+    background-color: black;
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.1rem;
+    color: #FFAAB6;
+}
+
+.input {
+    height: 4.57rem;
+    width: 19.02rem;
+    border: 2px solid #53D5FD;
+    box-shadow: 0px 0px 12px 3px #53D5FD, 0px 0px 38px 16px #191DD5;
+    border-radius: 10px;
+    background-color: black;
+    font-family: 'Jura';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.1rem;
+    color: #FFAAB6;
+    padding-left: 20px;
+    
+}
+.input::placeholder{
+    color: #c48790;
+    font-size: 1.7rem;
+}
+.selector-container{
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    margin-bottom: 0px;
+    margin-top: 3.5rem;
+
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
+@media only screen and (max-width: 475px) {
+    html{
+        font-size: 55%;
+    }
+    .buttonContainer{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100vw;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .buttons{
+        height: 22vw;
+        width: 43vw;
+        object-fit: cover;
+        margin-top: 0px;
+    }
+    #depositeBtn{
+        margin-left: 0rem;
+    }
+}
