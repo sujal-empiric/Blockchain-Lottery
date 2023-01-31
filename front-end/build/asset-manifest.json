@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.e0d9ee19.css",
-    "main.js": "./static/js/main.bfd3ec2b.js",
+    "main.js": "./static/js/main.e0c563eb.js",
     "static/media/Flames.png": "./static/media/Flames.348f2254244835cb94d6.png",
     "static/media/Buy Ticket Button GIF.gif": "./static/media/Buy Ticket Button GIF.352521ef3dc258bf1a8a.gif",
     "static/media/Approve Token Button GIF.gif": "./static/media/Approve Token Button GIF.b0752fa84f848f83e98f.gif",
@@ -31,10 +31,10 @@
     "static/media/Mini Logo.png": "./static/media/Mini Logo.92bee954ffd37abc60d9.png",
     "index.html": "./index.html",
     "main.e0d9ee19.css.map": "./static/css/main.e0d9ee19.css.map",
-    "main.bfd3ec2b.js.map": "./static/js/main.bfd3ec2b.js.map"
+    "main.e0c563eb.js.map": "./static/js/main.e0c563eb.js.map"
   },
   "entrypoints": [
     "static/css/main.e0d9ee19.css",
-    "static/js/main.bfd3ec2b.js"
+    "static/js/main.e0c563eb.js"
   ]
 }

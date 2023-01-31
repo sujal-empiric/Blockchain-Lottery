@@ -30,7 +30,7 @@ function App() {
     "https://bsc-dataseed.binance.org/"
   );
   const c = new ethers.Contract(
-    "0x6fe928971bFc1C6d2dE8e60E28c9Ec3e42EF16b0",
+    "0x03DFeB07E988bde23A69316ED8bC7732Ba40F648",
     blockchainlotteryV2,
     p
   );
